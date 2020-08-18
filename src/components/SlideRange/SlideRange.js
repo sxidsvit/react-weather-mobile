@@ -15,7 +15,7 @@ function SlideRange({ style, currentWeather, setSurrentWeather }) {
 
   return (
     <View>
-      <Text style={{ ...styles.slideRange, ...styles.sliderText }}>
+      <Text style={{ ...styles.slideRange, ...styles.sliderText, ...style }}>
         Отрегулируйте температуру и цвет заднего фона
       </Text>
       <Slider

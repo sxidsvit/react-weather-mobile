@@ -109,3 +109,15 @@ Slider - React Native component used to select a single value from a range of va
 https://github.com/react-native-community/react-native-slider
 
 npm install @react-native-community/slider --save
+
+=======================================================================================
+
+TextInput - a foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
+
+========================================================================================
+
+npm i @expo/vector-icons
+
+Документация: https://docs.expo.io/guides/icons/
+
+Список иконок с поиском: https://icons.expo.fyi/

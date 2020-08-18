@@ -14,7 +14,7 @@ const { tmin, tminColor, tmidle, tmidleColor, tmax, tmaxColor } = fixedTemp
 
 // function for linear color interpolation based on the obtained air temperature
 
-export const bgcolor = (tcurrent) => {
+export const bgcolor = (tcurrent = 0) => {
 
   const hexInterpolation = (t, tColor) => {
     const t1 = tmidle

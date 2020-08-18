@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import './Search.css'
+import { StyleSheet, View, TextInput } from 'react-native'
+import { AntDesign } from '@expo/vector-icons'
 import { BASEURL } from '../../utils/constants'
 import fetchWeather from '../../utils/fetchWeather'
-import { Form, Button } from 'react-bootstrap'
 
 function Search({ currentWeather, setSurrentWeather }) {
   const [search, setSearch] = useState('')
 
   const submitHandler = event => {
-    event.preventDefault()
     const сity = search.trim()
     if (сity) {
       const api = `${BASEURL}&q=${сity}`
+      console.log('submitHandler - api: ', api);
       fetchWeather(api, setSurrentWeather)
       setSearch('')
     } else {
@@ -19,27 +19,43 @@ function Search({ currentWeather, setSurrentWeather }) {
     }
   }
 
-  const changeInputHandler = event => {
-    event.persist()
-    setSearch(event.target.value)
-  }
-
   return (
-    <Form onSubmit={submitHandler} className="body">
-      <Form.Group className="form-group">
-        <Form.Control
-          type="text"
-          className="form-control"
-          id="q"
-          name="q"
-          value={search}
-          onChange={changeInputHandler}
-        />
-      </Form.Group>
-      <Button className="btn btn-color" type="submit"><i className="fa fa-question-circle"></i>&nbsp;Поиск</Button>
-    </Form>
-
+    <View style={styles.block}  >
+      <TextInput
+        style={styles.input}
+        placeholder='Название города ...'
+        value={search}
+        keyboardType='default'
+        autoCorrect={false}
+        autoCapitalize='none'
+        onChangeText={setSearch}
+      />
+      <AntDesign.Button
+        name='search1'
+        backgroundColor="#c1593f"
+        onPress={submitHandler}>
+        Поиск
+      </AntDesign.Button>
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  block: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 15
+  },
+  input: {
+    width: '60%',
+    padding: 10,
+    // marginBottom: 20,
+    borderStyle: 'solid',
+    borderBottomWidth: 2,
+    borderBottomColor: '#c1593f'
+  }
+})
+
 
 export default Search
