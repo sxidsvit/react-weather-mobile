@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, TextInput } from 'react-native'
+import { StyleSheet, View, TextInput, Alert } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { BASEURL } from '../../utils/constants'
 import fetchWeather from '../../utils/fetchWeather'
@@ -14,7 +14,9 @@ function Search({ currentWeather, setSurrentWeather }) {
       fetchWeather(api, setSurrentWeather)
       setSearch('')
     } else {
-      alert('Search field must not be empty')
+      Alert.alert('Attention!',
+        'Search field must not be empty'
+      )
     }
   }
 

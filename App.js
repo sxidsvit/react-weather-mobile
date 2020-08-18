@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: '100%',
     marginTop: 30,
-    paddingTop: 30,
+    paddingTop: 60,
+    paddingBottom: 120,
     paddingHorizontal: 20
   },
   containerWeather: {
