@@ -4,9 +4,9 @@ import { StatusBar } from 'expo-status-bar';
 import { Container, Image } from 'react-bootstrap';
 import { bgcolor } from './src/utils/bgcolor'
 import useMyLoacationWeather from './src/utils/useMyLoacationWeather'
-// import 'bootstrap/dist/css/bootstrap.min.css';
 // import Search from './src/components/Search/Search';
-// import SlideRange from './src/components/SlideRange/SlideRange'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import SlideRange from './src/components/SlideRange/SlideRange'
 
 function App() {
 
@@ -19,8 +19,19 @@ function App() {
 
   return (
     <View style={styles.container}>
+      {/* <Search
+        currentWeather={currentWeather}
+        setSurrentWeather={setSurrentWeather}
+      /> */}
       <Text>Current coordinates: {text}</Text>
       <Text>Current temperature: {currentTemp}</Text>
+      <SlideRange
+        style={{
+          backgroundColor: bgcolor(currentTemp)
+        }}
+        currentWeather={currentWeather}
+        setSurrentWeather={setSurrentWeather}
+      />
       <StatusBar style="auto" />
     </View>
   );

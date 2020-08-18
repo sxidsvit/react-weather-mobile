@@ -104,3 +104,8 @@ package.json
   }
 }
 =======================================================================================
+
+Slider - React Native component used to select a single value from a range of values
+https://github.com/react-native-community/react-native-slider
+
+npm install @react-native-community/slider --save

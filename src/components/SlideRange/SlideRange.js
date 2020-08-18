@@ -1,33 +1,46 @@
 import React, { useState } from 'react'
-import './SlideRange.css'
-import { Form } from 'react-bootstrap'
+import { StyleSheet, Text, View } from 'react-native'
+import Slider from '@react-native-community/slider'
 
 function SlideRange({ style, currentWeather, setSurrentWeather }) {
   const [temp, setTemp] = useState(0)
 
-  const changeTempHandler = event => {
-    event.persist()
-    const temperatureDegree = event.target.value
-    setTemp(temperatureDegree)
-    currentWeather.main.temp = temperatureDegree
-    setSurrentWeather(prevState => ({ ...prevState, [prevState.main.temp]: temperatureDegree }
+  const changeTempHandler = value => {
+    const sliderTtemperature = value
+    setTemp(sliderTtemperature)
+    currentWeather.main.temp = sliderTtemperature
+    setSurrentWeather(prevState => ({ ...prevState, [prevState.main.temp]: sliderTtemperature }
     ))
   }
 
   return (
-    <Form className="slide-range" style={style}>
-      <Form.Label className="text-center d-block" htmlFor="customRange">Отрегулируйте температуру и цвет заднего фона</Form.Label>
-      <Form.Control type="range"
-        className="custom-range"
-        min="-30"
-        max="40"
-        step="1"
+    <View>
+      <Text style={{ ...styles.slideRange, ...styles.sliderText }}>
+        Отрегулируйте температуру и цвет заднего фона
+      </Text>
+      <Slider
+        minimumValue={-30}
+        maximumValue={40}
+        maximumTrackTintColor={'#c1593f'}
+        thumbTintColor={'#c1593f'}
+        step={1}
         value={temp}
-        id="customRange"
-        onChange={changeTempHandler}
-      />
-    </Form>
+        onValueChange={changeTempHandler} />
+    </View>
   )
 }
+
+const styles = StyleSheet.create({
+  slideRange: {
+    padding: 20,
+    color: '#c1593f',
+    fontWeight: '700',
+  },
+  sliderText: {
+    padding: 20,
+    textAlign: 'center'
+  }
+})
+
 
 export default SlideRange
