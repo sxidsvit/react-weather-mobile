@@ -11,7 +11,6 @@ function Search({ currentWeather, setSurrentWeather }) {
     const сity = search.trim()
     if (сity) {
       const api = `${BASEURL}&q=${сity}`
-      console.log('submitHandler - api: ', api);
       fetchWeather(api, setSurrentWeather)
       setSearch('')
     } else {
@@ -27,7 +26,7 @@ function Search({ currentWeather, setSurrentWeather }) {
         value={search}
         keyboardType='default'
         autoCorrect={false}
-        autoCapitalize='none'
+        autoCapitalize='characters'
         onChangeText={setSearch}
       />
       <AntDesign.Button
@@ -48,12 +47,14 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   input: {
-    width: '60%',
+    width: '70%',
     padding: 10,
-    // marginBottom: 20,
+    fontSize: 18,
     borderStyle: 'solid',
     borderBottomWidth: 2,
-    borderBottomColor: '#c1593f'
+    borderBottomColor: '#c1593f',
+    color: "#c1593f",
+    fontWeight: '700'
   }
 })
 

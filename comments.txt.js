@@ -121,3 +121,11 @@ npm i @expo/vector-icons
 Документация: https://docs.expo.io/guides/icons/
 
 Список иконок с поиском: https://icons.expo.fyi/
+
+========================================================================================
+
+Image
+A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
+
+Стилизация изображения
+https://docs.expo.io/versions/latest/react-native/image-style-props/#props
