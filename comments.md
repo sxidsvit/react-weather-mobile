@@ -1,4 +1,6 @@
-------------Установка Expo.Создание проекта и его запуск---------------------------
+=======================================================================================
+
+Установка Expo.Создание проекта и его запуск
 
   Expo - фреймворк для React Native.
 Предоставляет удобный набор инструментов(фитчей) для быстрой разработки.
@@ -13,6 +15,7 @@ expo start
 expo r - c - очистка кеша
 
 После запуска приложения командой npm start, переходим в dashboard(панель управления)
+
 =======================================================================================
 
 Bootstrap style library for React Native: react-native-bootstrap-styles
@@ -95,14 +98,15 @@ const styles = StyleSheet.create({
 });
 
 
---------------------------------------------------------------------------------------
 package.json
+
 {
   "dependencies": {
     "expo-constants": "^9.1.1",
     "expo-location": "^8.3.0",
   }
 }
+
 =======================================================================================
 
 Slider - React Native component used to select a single value from a range of values
@@ -204,7 +208,8 @@ With an Android phone, you can scan this QR code with your Expo mobile app to lo
 
 https://docs.expo.io/distribution/building-standalone-apps/
 
-When building for android you can choose to build APK (expo build:android -t apk) or Android App Bundle (expo build:android -t app-bundle). App bundles are recommended, but you have to make sure the Google Play App Signing is enabled for your project, you can read more about it here.
+When building for android you can choose to build APK (expo build:android -t apk) or Android App Bundle (expo build:android -t app-bundle).
+App bundles are recommended, but you have to make sure the Google Play App Signing is enabled for your project, you can read more about it here.
 
 (1) Выполняем команду: expo build:android -t app-bundle
 
@@ -221,8 +226,24 @@ Keystore credentials
   Key alias:         QHN4aWRzdml0L3JlYWN0LXdlYXRoZXItbW9iaWxl
   Key password:      0783ed25a3ab484bae2e5634d3b98bab
 
-  Path to Keystore:  D:\My projects\react-weather-mobile\react-weather-mobile.jks
+Path to Keystore:  D:\My projects\react-weather-mobile\react-weather-mobile.jks
 
 (5) Теперь можно заливать приложение на Google Play
 
 Для этого выполняем команду: expo upload:android
+
+https://developer.android.com/studio/command-line/bundletool
+
+Local Android uploads are only supported on macOS.
+Try the --use-submission-service flag to upload your app from Expo servers.
+This feature is behind a flag because it is experimental
+
+expo upload:android --use-submission-service
+
+A Google Service Account JSON key is required to upload your app to Google Play Store.
+If you're not sure what this is or how to create one,
+learn more here (​https://expo.fyi/creating-google-service-account​).
+
+(6) Перейдя по ссылке https://expo.io/@sxidsvit/react-weather-mobile
+вы можете отсканировать  QR-код с помощью мобильного приложения Expo,
+установленного на телефоне Android, чтобы сразу загрузить этот проект.
