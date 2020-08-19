@@ -25,6 +25,7 @@ function Search({ currentWeather, setSurrentWeather }) {
       <TextInput
         style={styles.input}
         placeholder='Название города ...'
+        placeholderTextColor={THEME.MAIN_COLOR}
         value={search}
         keyboardType='default'
         autoCorrect={false}
@@ -32,12 +33,13 @@ function Search({ currentWeather, setSurrentWeather }) {
         onChangeText={setSearch}
       />
       <AntDesign.Button
+        style={{ fontFamily: 'roboto-bold' }}
         name='search1'
         backgroundColor={THEME.MAIN_COLOR}
         onPress={submitHandler}>
         Поиск
       </AntDesign.Button>
-    </View>
+    </View >
   )
 }
 
@@ -52,11 +54,11 @@ const styles = StyleSheet.create({
     width: '70%',
     padding: 10,
     fontSize: 18,
+    fontFamily: 'roboto-bold',
     borderStyle: 'solid',
     borderBottomWidth: 2,
     borderBottomColor: THEME.MAIN_COLOR,
     color: THEME.MAIN_COLOR,
-    fontWeight: '700'
   }
 })
 

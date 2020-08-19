@@ -138,3 +138,17 @@ Launches an alert dialog with the specified title and message.
 Optionally provide a list of buttons. Tapping any button will fire the respective onPress callback and dismiss the alert. By default, the only button will be an 'OK' button
 
 https://docs.expo.io/versions/latest/react-native/alert/
+
+========================================================================================
+
+expo-font
+Load fonts at runtime and use them in React Native components
+npm i expo-font
+
+========================================================================================
+
+AppLoading
+https://docs.expo.io/versions/latest/sdk/app-loading/
+
+A React component that tells Expo to keep the app loading screen open if it is the first and only component rendered in your app. Unless autoHideSplash prop is set to false, the loading screen will disappear and your app will be visible when the component is removed.
+This is incredibly useful to let you download and cache fonts, logos, icon images and other assets that you want to be sure the user has on their device for an optimal experience before rendering and they start using the app

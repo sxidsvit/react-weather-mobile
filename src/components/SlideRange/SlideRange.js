@@ -16,7 +16,7 @@ function SlideRange({ style, currentWeather, setSurrentWeather }) {
 
   return (
     <View>
-      <Text style={{ ...styles.slideRange, ...styles.sliderText, ...style }}>
+      <Text style={{ ...styles.sliderText, ...style }}>
         Отрегулируйте температуру и цвет заднего фона
       </Text>
       <Slider
@@ -32,13 +32,10 @@ function SlideRange({ style, currentWeather, setSurrentWeather }) {
 }
 
 const styles = StyleSheet.create({
-  slideRange: {
-    padding: 20,
-    color: THEME.MAIN_COLOR,
-    fontWeight: '700',
-  },
   sliderText: {
     padding: 20,
+    fontFamily: 'roboto-bold',
+    color: THEME.MAIN_COLOR,
     textAlign: 'center'
   }
 })
