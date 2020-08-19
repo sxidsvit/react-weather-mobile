@@ -4,5 +4,6 @@ const PROXY = "https://cors-anywhere.herokuapp.com/"
 export const BASEURL = `http://api.openweathermap.org/data/2.5/weather?APPID=${APIKEY}&units=metric&lang=ru`
 
 export const THEME = {
-  MAIN_COLOR: '#c1593f'
+  MAIN_COLOR: '#c1593f',
+  BACGROUND_DEFAULT: "#fff700"
 }
