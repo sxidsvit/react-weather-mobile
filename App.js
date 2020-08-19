@@ -6,7 +6,7 @@ import MainLayout from './src/components/MainLayout/MainLayout'
 async function loadApplication() {
   await Font.loadAsync({
     'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
-    'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
+    'roboto-bold': require('./assets/fonts/Lobster-Regular.ttf'),
   })
 }
 
