@@ -11,16 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-.image-icon {
-  width: 200px;
-  height: 200px;
-
-}
-
-.weather {
-  height: calc(100vh - 85px - 60px);
-  color: #c1593f;
-  font-weight: 700;
-}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, View, TextInput, Alert } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
-import { BASEURL } from '../../utils/constants'
+import { BASEURL, THEME } from '../../utils/constants'
 import fetchWeather from '../../utils/fetchWeather'
 
 function Search({ currentWeather, setSurrentWeather }) {
@@ -33,7 +33,7 @@ function Search({ currentWeather, setSurrentWeather }) {
       />
       <AntDesign.Button
         name='search1'
-        backgroundColor="#c1593f"
+        backgroundColor={THEME.MAIN_COLOR}
         onPress={submitHandler}>
         Поиск
       </AntDesign.Button>
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderStyle: 'solid',
     borderBottomWidth: 2,
-    borderBottomColor: '#c1593f',
-    color: "#c1593f",
+    borderBottomColor: THEME.MAIN_COLOR,
+    color: THEME.MAIN_COLOR,
     fontWeight: '700'
   }
 })

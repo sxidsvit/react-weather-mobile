@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Slider from '@react-native-community/slider'
+import { THEME } from '../../utils/constants'
 
 function SlideRange({ style, currentWeather, setSurrentWeather }) {
   const [temp, setTemp] = useState(0)
@@ -21,8 +22,8 @@ function SlideRange({ style, currentWeather, setSurrentWeather }) {
       <Slider
         minimumValue={-30}
         maximumValue={40}
-        maximumTrackTintColor={'#c1593f'}
-        thumbTintColor={'#c1593f'}
+        maximumTrackTintColor={THEME.MAIN_COLOR}
+        thumbTintColor={THEME.MAIN_COLOR}
         step={1}
         value={temp}
         onValueChange={changeTempHandler} />
@@ -33,7 +34,7 @@ function SlideRange({ style, currentWeather, setSurrentWeather }) {
 const styles = StyleSheet.create({
   slideRange: {
     padding: 20,
-    color: '#c1593f',
+    color: THEME.MAIN_COLOR,
     fontWeight: '700',
   },
   sliderText: {

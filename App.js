@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Platform } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import Search from './src/components/Search/Search';
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, Image, Platform, ScrollView, SafeAreaView } from 'react-native'
+import { StatusBar } from 'expo-status-bar'
+import Constants from 'expo-constants'
+import Search from './src/components/Search/Search'
 import SlideRange from './src/components/SlideRange/SlideRange'
 import useMyLoacationWeather from './src/utils/useMyLoacationWeather'
 import { bgcolor } from './src/utils/bgcolor'
+import { THEME } from './src/utils/constants'
 
 function App() {
 
@@ -17,28 +19,33 @@ function App() {
   let icomUri = `http://openweathermap.org/img/wn/${currentWeather?.weather[0].icon}@2x.png`
 
   return (
-    <View style={{ ...styles.containerGlobal, backgroundColor: bgcolor(currentTemp) }}>
-      <Search
-        currentWeather={currentWeather}
-        setSurrentWeather={setSurrentWeather}
-      />
-      <View
-        style={styles.containerWeather}>
-        {currentWeather &&
-          <Image style={styles.imageIcon} source={{ uri: icomUri }} />
-        }
-        <Text style={styles.weather}>
-          {currentWeather?.name},&nbsp;
+    <SafeAreaView style={{ ...styles.containerGlobal, backgroundColor: bgcolor(currentTemp) }} >
+      <ScrollView >
+        <View >
+          <Search
+            currentWeather={currentWeather}
+            setSurrentWeather={setSurrentWeather}
+          />
+          <View
+            style={styles.containerWeather}>
+            {currentWeather &&
+              <Image style={styles.imageIcon} source={{ uri: icomUri }} />
+            }
+            <Text style={styles.weather}>
+              {currentWeather?.name},&nbsp;
           {currentWeather?.weather[0].description},&nbsp;
           {Math.round(currentWeather?.main.temp * 10) / 10}C
         </Text>
-      </View>
-      <SlideRange
-        currentWeather={currentWeather}
-        setSurrentWeather={setSurrentWeather}
-      />
-      <StatusBar style="auto" />
-    </View>
+          </View>
+          <SlideRange
+            currentWeather={currentWeather}
+            setSurrentWeather={setSurrentWeather}
+          />
+          <StatusBar style="auto" />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+
   );
 }
 
@@ -48,9 +55,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     height: '100%',
-    marginTop: 30,
+    marginTop: Constants.statusBarHeight,
     paddingTop: 60,
-    paddingBottom: 120,
+    paddingBottom: 0,
     paddingHorizontal: 20
   },
   containerWeather: {
@@ -60,7 +67,7 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   weather: {
-    color: '#c1593f',
+    color: THEME.MAIN_COLOR,
     fontWeight: '700',
     fontSize: 20,
     textAlign: "center"
