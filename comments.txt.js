@@ -160,3 +160,69 @@ react-native-preload
 
 ActivityIndicator - Displays a circular loading indicator
 https://docs.expo.io/versions/latest/react-native/activityindicator/
+
+
+========================================================================================
+
+Dimensions
+https://docs.expo.io/versions/latest/react-native/dimensions/
+
+useWindowDimensions is the preffered API for React components. Unlike Dimensions, it updates as the window's dimensions update. This works nicely with the React paradigm
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
+const windowWidth = useWindowDimensions().width;
+const windowHeight = useWindowDimensions().height;
+
+========================================================================================
+
+Constants
+https://docs.expo.io/versions/latest/sdk/constants/
+
+expo-constants provides system information that remains constant throughout the lifetime of your app's install
+
+========================================================================================
+
+Configuration with app.json
+https://docs.expo.io/workflow/configuration/
+https://docs.expo.io/versions/latest/config/app/
+https://docs.expo.io/guides/splash-screens/
+
+
+========================================================================================
+
+Публикуем приложение в наш expo dashboard:
+выполняем команду expo publish
+
+https://expo.io/@sxidsvit/react-weather-mobile
+With an Android phone, you can scan this QR code with your Expo mobile app to load this project immediately.
+
+=========================================================================================
+
+Билд и деплой нашего мобильного приложения
+
+https://docs.expo.io/distribution/building-standalone-apps/
+
+When building for android you can choose to build APK (expo build:android -t apk) or Android App Bundle (expo build:android -t app-bundle). App bundles are recommended, but you have to make sure the Google Play App Signing is enabled for your project, you can read more about it here.
+
+(1) Выполняем команду: expo build:android -t app-bundle
+
+(2) You can monitor the build at
+ https://expo.io/dashboard/sxidsvit/builds/b4c867ce-eb9d-4a18-bcc9-b88f3c4a2712
+
+(3) Successfully built standalone app: https://expo.io/artifacts/1cae8b15-27d3-4de6-b6e0-dab24aaeb572
+
+(4) Нужно получить Keystore credentials.
+Для этого выполняем команду: expo fetch:android:keystore
+
+Keystore credentials
+  Keystore password: f61ca4f62e684dc69f8f02c939247b72
+  Key alias:         QHN4aWRzdml0L3JlYWN0LXdlYXRoZXItbW9iaWxl
+  Key password:      0783ed25a3ab484bae2e5634d3b98bab
+
+  Path to Keystore:  D:\My projects\react-weather-mobile\react-weather-mobile.jks
+
+(5) Теперь можно заливать приложение на Google Play
+
+Для этого выполняем команду: expo upload:android
