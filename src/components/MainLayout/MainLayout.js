@@ -7,6 +7,7 @@ import SlideRange from '../SlideRange/SlideRange'
 import useMyLoacationWeather from '../../utils/useMyLoacationWeather'
 import { bgcolor } from '../../utils/bgcolor'
 import { THEME } from '../../utils/constants'
+import { s, c } from '../../utils/bootstrapStyles'
 
 
 function MainLayout() {
@@ -23,13 +24,12 @@ function MainLayout() {
     return (
       <View style={{ ...styles.containerGlobal, ...styles.center }}>
         <ActivityIndicator color={THEME.MAIN_COLOR} size='large' />
-      </View >
+      </View>
     )
   }
 
-
   return (
-    <SafeAreaView style={{ ...styles.containerGlobal, backgroundColor: bgcolor(currentTemp) }} >
+    <SafeAreaView style={{ ...styles.containerGlobal, ...s.h100, backgroundColor: bgcolor(currentTemp) }} >
       <ScrollView >
         <View >
           <Search
@@ -37,11 +37,11 @@ function MainLayout() {
             setSurrentWeather={setSurrentWeather}
           />
           <View
-            style={styles.containerWeather}>
+            style={[styles.containerWeather]}>
             {currentWeather &&
               <Image style={styles.imageIcon} source={{ uri: icomUri }} />
             }
-            <Text style={styles.weather}>
+            <Text style={[styles.weather, s.textCenter]}>
               {currentWeather?.name},&nbsp;
               {currentWeather?.weather[0].description},&nbsp;
               {Math.round(currentWeather?.main.temp * 10) / 10}C
@@ -60,10 +60,6 @@ function MainLayout() {
 
 const styles = StyleSheet.create({
   containerGlobal: {
-    flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    height: '100%',
     marginTop: Constants.statusBarHeight,
     paddingTop: 60,
     paddingBottom: 0,
@@ -77,9 +73,8 @@ const styles = StyleSheet.create({
   },
   weather: {
     color: THEME.MAIN_COLOR,
-    fontFamily: 'roboto-bold',
+    fontFamily: `${c.FONT_FAMILY_BASE}`,
     fontSize: 20,
-    textAlign: "center"
   },
   imageIcon: {
     width: 150,
